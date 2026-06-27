@@ -570,7 +570,8 @@
   }
 
   window.filterChats = q => renderChatList(allChats.filter(c => {
-    const name = c.type==='group' ? c.name : (c.memberNames?.find(n=>n!==(currentUser.displayName||currentUser.email))||'');
+   const myName = currentUser.displayName || currentUser.email;
+      const name = isGroup ? chat.name : (chat.memberNames?.find(n => n !== myName) || chat.memberNames?.[0] || '不明'); 
     return name.toLowerCase().includes(q.toLowerCase());
   }));
 
