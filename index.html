@@ -574,7 +574,7 @@
       const name = isGroup ? chat.name : (chat.memberNames?.find(n => n !== myName) || chat.memberNames?.[0] || '不明'); 
     return name.toLowerCase().includes(q.toLowerCase());
   }));
-
+const name = isGroup ? chat.name : (chat.memberNames?.find(n => n !== currentUser.displayName && n !== currentUser.email && n !== 'Naoto' && n !== 'Naoto Doi') || chat.memberNames?.[1] || '不明');
   function openChat(chatId, name, initials, color, isGroup) {
     currentChatId = chatId;
     document.querySelectorAll('.chat-item').forEach(el => el.classList.toggle('active', el.dataset.id === chatId));
